@@ -1,4 +1,4 @@
-ASTRA – Assistente Inteligente de Estudos
+## ASTRA – Assistente Inteligente de Estudos
 
 A **ASTRA** é uma organizadora de estudos inteligente com **IA**, criada para ajudar alunos a aprenderem de forma mais eficiente.  
 Ela identifica o estilo de aprendizagem do usuário através de um **quiz de personalidade**, sugere os **melhores métodos de estudo** e gera um **plano personalizado** em forma de cronograma/fluxograma.
