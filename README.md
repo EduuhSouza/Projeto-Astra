@@ -24,7 +24,7 @@ Ela identifica o estilo de aprendizagem do usuário através de um **quiz de per
 ## 🛠 Tecnologias Possíveis
 
 - **Back-end:** Java (Spring Boot)  
-- **Front-end:** React (web) ou JavaFX (desktop)  
+- **Front-end:** Css (basico)  
 - **IA (ASTRA):**  
   - OpenAI API ou Gemini API (gratis) (ChatGPT/GPT-4/5) para gerar cronogramas e conversar  
   - Modelo próprio simples para quiz (regras fixas + pontuação)  
