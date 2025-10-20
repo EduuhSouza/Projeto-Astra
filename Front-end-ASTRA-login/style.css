@@ -1,0 +1,169 @@
+@charset "utf-8";
+
+:root{
+    --roxo-escuro: #31175c;
+    --roxo: #73168c;
+    --cinza-escuro: #0d0d0d; 
+    --cinza: #262626;
+}
+
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 20% 20%, #1b0034, #000011 80%);
+      overflow: hidden;
+      color: white;
+    }
+
+    /* ----- Fundo animado de estrelas ----- */
+    body::before {
+        z-index: -1;
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+      animation: moverEstrelas 100s linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes moverEstrelas {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-50%, -50%); }
+    }
+
+    /* Corpo do projeto LOGIN*/
+
+    .container{
+        position: relative;
+        width: 750px;
+        height: 450px;
+        border: 2px solid var(--roxo-escuro);
+        box-shadow: 0 0 25px var(--roxo-escuro);
+    }
+
+    .container .form-box{
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+    
+
+    .form-box.Login{
+        left: 0;
+        padding: 0 40px;
+        backdrop-filter: blur(10px);
+        
+
+    }
+
+    .form-box h2{
+        font-size: 32px;
+        text-align: center;
+
+    }
+
+    .form-box .input-box{
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin-top: 25px;
+    }
+
+    .input-box input{
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        color: white;
+        border-bottom: 2px solid white;
+        padding-right: 23px;
+        transition: .5s ease-in-out;
+    }
+
+     .input-box input:focus,
+    .input-box input:valid{
+        border-bottom: 2px solid var(--roxo);
+    }
+
+    .input-box label{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: white;
+        transition: .5s ease-in-out;
+    }
+
+    .input-box input:focus ~ label,
+    .input-box input:valid ~ label{
+        top: -5px;
+        color: var(--roxo);
+    }
+
+    /* ICONS */
+    .input-box i{
+        position: absolute;
+        top: 50%;
+        right: 0;
+        font-size: 18px;
+        transform: translateY(-50%);
+        transition: .5s ease-in-out;
+    }
+
+     .input-box input:focus ~ i,
+    .input-box input:valid ~ i{
+        color: var(--roxo);
+    }
+
+    /* BOTAO */
+    .btn{
+        position: relative;
+        width: 100%;
+        height: 45px;
+        border-radius: 40px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 600;
+        background: transparent;
+        color: white;
+        border: 2px solid var(--roxo);
+        transition: .5s ease-in-out;
+    }
+
+    .btn:hover{
+        box-shadow: 0 0 25px var(--roxo);
+    }
+
+    .cadastro-link{
+        font-size: 1em;
+        text-align: center;
+        margin: 20px 0 10px;
+    }
+
+    .cadastro-link a{
+        text-decoration: none;
+        color: var(--roxo);
+        font-weight: 600;
+    }
+
+    .cadastro-link a:hover{
+        text-decoration: underline;
+    }
