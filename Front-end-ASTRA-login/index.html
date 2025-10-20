@@ -4,8 +4,9 @@
 
      <!-- ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="shortcut icon" href="">
+    <link rel="shortcut icon" href="imgs/Logo_astra-removebg-preview.png">
 
+    
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,35 +16,83 @@
 
     <!-- LOGIN -->
     <div class="container">
+        <!-- LINHA DIVISÓRIA -->
+        <div class="shape-line"></div>
+
+        <div class="shape-line2"></div>
+        <!-- CORPO FORMULARIO -->
         <div class="form-box Login">
-            <h2>Login</h2>
+            <h2 class="animation" style="--D:0">Login</h2>
 
            <!-- Formulario -->
             <form action="#">
                 <!-- Nome -->
-                <div class="input-box">
+                <div class="input-box animation" style="--D:1">
                     <input type="text" required>
                     <label for="">Nome</label>
                     <i class="fa-solid fa-user"></i>
                 </div>
 
                 <!-- Senha -->
-                 <div class="input-box">
+                 <div class="input-box animation" style="--D:2">
                     <input type="text" required>
                     <label for="">Senha</label>
                     <i class="fa-solid fa-lock"></i>
                 </div>
 
-                <div class="input-box">
-                    <button class="btn" type="submit"> Login </button>
+                <div class="input-box animation" style="--D:3">
+                    <button class="btn" type="submit"> Entrar </button>
                 </div>
 
-                <div class="cadastro-link">
-                    <p>Não tem conta ? <a href="#"> Criar conta </a></p>
+                <div class="register-link animation" style="--D:4">
+                    <p class="SignUpLink">Não tem conta? <a href="#"> Criar conta </a></p>
                 </div>
             </form>
         </div>
+
+        <div class="info-content Login">
+            <h2 class="animation" style="--D:0">BEM-VINDO(A)</h2>
+            <p class="animation" style="--D:1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+
+        </div>
+
+        <!-- CADASTRO -->
+         <div class="form-box Register">
+            <h2 class="animation">Cadastrar-se</h2>
+
+           <!-- Formulario -->
+            <form action="#">
+                <!-- Nome -->
+                <div class="input-box animation">
+                    <input type="text" required>
+                    <label for="">Nome</label>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <!-- Senha -->
+                 <div class="input-box animation">
+                    <input type="text" required>
+                    <label for="">Senha</label>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+
+                <div class="input-box animation">
+                    <button class="btn" type="submit"> Cadastrar-se </button>
+                </div>
+
+                <div class="register-link animation">
+                    <p class="SignInLink">Já tem uma conta? <a href="#"> Entrar </a></p>
+                </div>
+            </form>
+        </div>
+
+         <div class="info-content Register">
+            <h2 class="animation">BEM-VINDO(A)</h2>
+            <p class="animation">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+        </div>
     </div>
-    
+
+    <script src="index.js"></script>
+
 </body>
 </html>
