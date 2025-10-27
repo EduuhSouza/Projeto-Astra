@@ -59,29 +59,7 @@
         width: 90px;
     }
 
-    main p{
-        color: white;
-        margin-top: 5px;
-        margin-bottom: 15px;
-    }
-
-    .container-dashboard{
-        border: 1px solid var(--roxo);
-        background-color: #1b003481;
-        border-radius: 1em;
-        margin-bottom: 20px;
-        padding: min(3em, 15%);
-        margin: 2em;
-    }
-
-    main {
-    margin-left: 250px;
-    transition: margin-left 300ms ease-in-out;
-}
-
-#sidebar.close + main {
-    margin-left: 60px;
-}
+ 
 
     h2, p {
         margin-top: 1em;
@@ -115,7 +93,7 @@
 
 
 /* ======== Quando a sidebar está fechada, esconder textos ========*/
-#sidebar.close a span,
+#sidebar.close .nav-btn span,
 #sidebar.close .dropdown-btn span {
     opacity: 0;
     visibility: hidden;
@@ -124,9 +102,9 @@
     transition: opacity 0.2s ease, width 0.2s ease;
 }
 
-    #sidebar ul{
+    /* #sidebar ul{
         list-style: none;
-    }
+    } */
 
     #sidebar > ul > li:first-child{
         display: flex;
@@ -135,7 +113,7 @@
 
     }
 
-    #sidebar ul li.active a{
+    #sidebar ul li.active .nav-btn{
         color: var(--roxo);
         
         i{
@@ -148,13 +126,15 @@
         font-size: 1.3em;
     }
 
-    #sidebar a,
+    #sidebar .nav-btn,
     #sidebar .dropdown-btn,
     #sidebar .logo{
         border-radius: .5em;
-        padding: .85em;
+        padding: 1em;
         color: white;
-        text-decoration: none;
+        background: none;
+        border: none;
+        /* text-decoration: none; */
         display: flex;
         align-items: center;
         gap: 1em;
@@ -171,11 +151,11 @@
         cursor: pointer;
     }
 
-    #sidebar a span, #sidebar .dropdown-btn span{
+    #sidebar .nav-btn span, #sidebar .dropdown-btn span{
         flex-grow: 1;
     }
 
-    #sidebar a:hover, #sidebar .dropdown-btn:hover{
+    #sidebar .nav-btn:hover, #sidebar .dropdown-btn:hover{
         background-color: var(--roxo-escuro);
         
     }
@@ -226,7 +206,7 @@
     }
 
 
-/* === BASE DO SIDEBAR (DESKTOP) === */
+/* BASE DO SIDEBAR (DESKTOP)*/
 #sidebar {
   position: fixed;
   top: 0;
@@ -296,6 +276,43 @@
 .dropdown-btn.active + .sub-menu {
   display: block;
 }
+
+/* MAIN  */
+
+   main p{
+        color: white;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    .container-dashboard{
+        border: 1px solid var(--roxo);
+        background-color: #1b003481;
+        border-radius: 1em;
+        margin-bottom: 20px;
+        padding: min(3em, 15%);
+        margin: 2em;
+    }
+
+    main {
+    margin-left: 250px;
+    transition: margin-left 300ms ease-in-out;
+}
+
+#sidebar.close + main {
+    margin-left: 60px;
+}
+
+/* Transição suave ao trocar de aba */
+#main-content.fade {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+#main-content{
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
 
 /* ========== SIDEBAR MOBILE ========== */
 

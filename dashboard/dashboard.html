@@ -25,16 +25,16 @@
                 </button>
             </li>
             <li class="active">
-                <a href="dashboard.html"> 
+                <button class="nav-btn" data-page="inicio">
                     <i class="fa-solid fa-house"></i>
-                    <span>Inicio</span>
-                </a>
+                    <span>Início</span>
+                </button>
             </li>
             <li>
-                <a href="#">
+                <button class="nav-btn" data-page="dashboard">
                     <i class="fa-solid fa-grip"></i>
-                   <span>Dashboard</span> 
-                </a>
+                    <span>Dashboard</span>
+                </button>
             </li>
             <li>
                 <button onclick=toggleSubMenu(this) class="dropdown-btn">
@@ -45,43 +45,27 @@
                 </button>
                 <ul class="sub-menu">
                     <div>
-                        <li><a href="#"> Fluxograma </a></li>
-                        <li><a href="#"> Método de estudo </a></li>
+                        <li><button class="nav-btn" data-page="fluxograma"> Fluxograma </button></li>
+                        <li><button class="nav-btn" data-page="metodo"> Método de estudo </button></li>
                     </div>
                     
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <button class="nav-btn" data-page="perfil">
                     <i class="fa-solid fa-user"></i>
                     <span>Perfil</span>
-                </a>
+                </button>
             </li>
         </ul>
     </nav>
     
     <!-- COPRO DASHBOARD -->
-    <main>
-
+   <main id="main-content">
         <div class="container-dashboard">
-            <h2> Inhaim </h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quam sit quaerat, placeat quo distinctio dicta laudantium unde dolore rem, earum ipsa officia doloribus repellat laborum recusandae minima deleniti. Porro.
-            </p>
+            <h2>Bem-vindo à ASTRA 🌟</h2>
+            <p>Descubra seu estilo de estudo e explore maneiras personalizadas de aprender.</p>
         </div>
-
-        <div class="container-dashboard">
-            <h2> Inhaim 2</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quam sit quaerat, placeat quo distinctio dicta laudantium unde dolore rem, earum ipsa officia doloribus repellat laborum recusandae minima deleniti. Porro.
-            </p>
-        </div>
-
-        <div class="container-dashboard">
-            <h2> Inhaim 3</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quam sit quaerat, placeat quo distinctio dicta laudantium unde dolore rem, earum ipsa officia doloribus repellat laborum recusandae minima deleniti. Porro.
-            </p>
-        </div>
-        
-
     </main>
     
 </body>
