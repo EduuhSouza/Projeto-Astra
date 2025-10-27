@@ -1,6 +1,6 @@
 @charset "utf-8";
-/* 12:14 */
-/* SCROLLBAR */
+
+/* ======== SCROLLBAR ========*/
 
 ::-webkit-scrollbar{
     width: 13px;
@@ -29,18 +29,15 @@
  body {
     width: 100%;
       height: 100vh;
-      /* display: flex;
-      align-items: center;
-      justify-content: center; */
       background: radial-gradient(circle at 20% 20%, #1b0034, #000011 80%);
       color: white;
-      min-height: 100vh;
+    
       display: grid;
       grid-template-columns: auto 1fr;
       font-family: sans-serif;
     }
 
-  /* ----- Fundo animado de estrelas ----- */
+  /*======== Fundo animado de estrelas ======== */
     body::before {
         z-index: -1;
       content: "";
@@ -74,7 +71,17 @@
         border-radius: 1em;
         margin-bottom: 20px;
         padding: min(3em, 15%);
+        margin: 2em;
     }
+
+    main {
+    margin-left: 250px;
+    transition: margin-left 300ms ease-in-out;
+}
+
+#sidebar.close + main {
+    margin-left: 60px;
+}
 
     h2, p {
         margin-top: 1em;
@@ -82,18 +89,40 @@
     
    /* SIDEBAR */
     #sidebar {
-        box-sizing: border-box;
-        height: 100vh;
-        width: 250px;
-        padding: 5px 1em;
-        background-color: var(--bg-menu);
-        border-right: 1px solid var(--roxo);
-        position: fixed;
-        top: 0;
-        left: 0;
-        overflow-y: auto;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 250px;
+    padding: 5px 1em;
+    background-color: var(--bg-menu);
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+    text-wrap: nowrap;
+    z-index: 100; 
 }
 
+
+/*======== SIDEBAR FECHADA ======== */
+
+    #sidebar.close{
+        padding: 5px;
+        width: 60px;
+       
+        box-shadow: 0 0 10px 8px var(--roxo-escuro);
+}
+
+
+/* ======== Quando a sidebar está fechada, esconder textos ========*/
+#sidebar.close a span,
+#sidebar.close .dropdown-btn span {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease, width 0.2s ease;
+}
 
     #sidebar ul{
         list-style: none;
@@ -108,7 +137,7 @@
 
     #sidebar ul li.active a{
         color: var(--roxo);
-
+        
         i{
             color: var(--roxo);
         }
@@ -116,6 +145,7 @@
     
     #sidebar i{
         color: white;
+        font-size: 1.3em;
     }
 
     #sidebar a,
@@ -147,17 +177,125 @@
 
     #sidebar a:hover, #sidebar .dropdown-btn:hover{
         background-color: var(--roxo-escuro);
+        
     }
 
     #sidebar .sub-menu{
-        display: none;
+        display: grid;
+        grid-template-rows: 0fr;
         transition: 300ms ease-in-out;
+ 
+        > div{
+            overflow: hidden;
+        }
     }
 
     #sidebar .sub-menu.show{
-        display: block;
+        grid-template-rows: 1fr;
+    }
+
+    .dropdown-btn i{
+        transition: all .5s ease-in-out;
+    }
+
+    .rotate i:last-child{
+        rotate: 180deg;
+    }
+
+    #sidebar .sub-menu{
+        padding-left: 2em;
+    }
+
+    /*======== BOTAO LATERAL ========*/
+    #toggle-btn{
+        margin-left: auto;
+        padding: 1em;
+        border: none;
+        border-radius: .5em;
+        background: none;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+
+        i{
+            transition: rotate 350ms ease;
+        }
+    }
+
+    #toggle-btn:hover{
+        background-color: var(--roxo-escuro);
     }
 
 
+/* === BASE DO SIDEBAR (DESKTOP) === */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: #130021;
+  border-right: 2px solid #5b1b96;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: width 0.3s ease;
+  z-index: 1000;
+}
 
+#sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar ul li {
+  position: relative;
+}
+
+#sidebar a,
+#sidebar .dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1em;
+  text-decoration: none;
+  color: #ddd;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  width: 100%;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+#sidebar i {
+  font-size: 1.3em;
+}
+
+#sidebar a:hover,
+#sidebar .dropdown-btn:hover {
+  background-color: rgba(176, 108, 255, 0.2);
+  color: #b06cff;
+}
+
+/* === SUBMENU PADRÃO (DESKTOP) === */
+.sub-menu {
+  display: none;
+  background-color: #1c0135;
+  margin-left: 2em;
+  border-left: 2px solid #5b1b96;
+  transition: all 0.3s ease;
+}
+
+.sub-menu li a {
+  padding: 0.8em 1em;
+  display: block;
+  font-size: 0.85em;
+}
+
+.dropdown-btn.active + .sub-menu {
+  display: block;
+}
+
+/* ========== SIDEBAR MOBILE ========== */
 

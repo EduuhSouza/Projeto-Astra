@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="imgs/icon_logo_astra-removebg-preview.png">
 
     <link rel="stylesheet" href="dashboard.css">
+    <script type="text/javascript" src="app.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,8 +20,8 @@
         <ul>
             <li>
                 <img src="imgs/icon_logo_astra-removebg-preview.png" alt="" class="logo">
-                <button id="toggle-btn">
-                    <i class="fa-solid fa-angles-right"></i>
+                <button onclick=toggleSidebar(this) id="toggle-btn">
+                    <i class="fa-solid fa-angles-left"></i>
                 </button>
             </li>
             <li class="active">
@@ -36,15 +37,18 @@
                 </a>
             </li>
             <li>
-                <button class="dropdown-btn">
+                <button onclick=toggleSubMenu(this) class="dropdown-btn">
                     <!-- <i class="fa-solid fa-arrow-up"></i> -->
                      <i class="fa-solid fa-folder-plus"></i>
                     <span>Gerar</span>
                     <i class="fa-solid fa-arrow-down"></i>
                 </button>
                 <ul class="sub-menu">
-                    <li><a href="#"> Fluxograma </a></li>
-                    <li><a href="#"> Método de estudo </a></li>
+                    <div>
+                        <li><a href="#"> Fluxograma </a></li>
+                        <li><a href="#"> Método de estudo </a></li>
+                    </div>
+                    
                 </ul>
             </li>
             <li>
