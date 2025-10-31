@@ -18,7 +18,7 @@ public class DataConfiguration {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/login_register?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/login_register?useTimezone=true&serverTimezone=UTC");
         dataSource.setUsername("root");
         dataSource.setPassword("");
 
@@ -31,9 +31,10 @@ public class DataConfiguration {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
 
         adapter.setDatabase(Database.MYSQL);
-        adapter.setShowSql(true); // mostra os SQLs no console
-        adapter.setGenerateDdl(true); // gera as tabelas automaticamente
-        adapter.setDatabasePlatform("org.hibernate.dialect.MySQL8Dialect");
+        adapter.setShowSql(true);
+        adapter.setGenerateDdl(true);
+        adapter.setDatabasePlatform("org.hibernate.dialect.MariaDBDialect");
+        adapter.setPrepareConnection(true);
 
         return adapter;
     }
