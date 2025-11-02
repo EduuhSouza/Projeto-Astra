@@ -24,11 +24,6 @@ public class LoginController {
         return "index";
     }
 
-//    @GetMapping("/cadastroUsuario")
-//    public String register(){
-//        return "register";
-//    }
-
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String cadastroUsuario(@Valid User user, BindingResult result){
