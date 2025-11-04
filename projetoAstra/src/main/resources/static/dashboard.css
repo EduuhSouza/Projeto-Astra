@@ -277,6 +277,38 @@
   display: block;
 }
 
+/* ======== BOTÃO LOGOUT ======== */
+#sidebar .logout-section {
+  padding-top: 1em;
+  border-top: 1px solid rgba(176, 108, 255, 0.3);
+}
+
+.btn-logout {
+  width: 100%;
+  background: none;
+  color: #fff;
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 1em;
+  border-radius: 0.6em;
+  transition: all 0.3s ease;
+}
+
+/* Hover e clique */
+.btn-logout:hover{
+background-color: rgba(176, 108, 255, 0.2);
+  color: #b06cff;
+}
+
+.btn-logout i {
+  font-size: 1.2em;
+  color: #fff;
+}
+
+
 /* MAIN  */
 
    main p{

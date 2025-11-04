@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-
     <!-- ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="shortcut icon" href="imgs/icon_logo_astra-removebg-preview.png">
@@ -20,7 +19,7 @@
     <ul>
         <li>
             <img src="imgs/icon_logo_astra-removebg-preview.png" alt="" class="logo">
-            <button onclick=toggleSidebar(this) id="toggle-btn">
+            <button onclick="toggleSidebar(this)" id="toggle-btn">
                 <i class="fa-solid fa-angles-left"></i>
             </button>
         </li>
@@ -37,18 +36,16 @@
             </button>
         </li>
         <li>
-            <button onclick=toggleSubMenu(this) class="dropdown-btn">
-                <!-- <i class="fa-solid fa-arrow-up"></i> -->
+            <button onclick="toggleSubMenu(this)" class="dropdown-btn">
                 <i class="fa-solid fa-folder-plus"></i>
                 <span>Gerar</span>
                 <i class="fa-solid fa-arrow-down"></i>
             </button>
             <ul class="sub-menu">
                 <div>
-                    <li><button class="nav-btn" data-page="fluxograma"> Fluxograma </button></li>
-                    <li><button class="nav-btn" data-page="metodo"> Método de estudo </button></li>
+                    <li><button class="nav-btn" data-page="fluxograma">Fluxograma</button></li>
+                    <li><button class="nav-btn" data-page="metodo">Método de estudo</button></li>
                 </div>
-
             </ul>
         </li>
         <li>
@@ -57,10 +54,19 @@
                 <span>Perfil</span>
             </button>
         </li>
+
+        <!-- BOTÃO LOGOUT FIXO -->
+        <div class="logout-section">
+            <form th:action="@{/logout}" method="get">
+                <button type="submit" class="btn-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Sair</span>
+                </button>
+            </form>
     </ul>
 </nav>
 
-<!-- COPRO DASHBOARD -->
+<!-- CONTEÚDO PRINCIPAL -->
 <main id="main-content">
     <div class="container-dashboard">
         <h2>Bem-vindo à ASTRA 🌟</h2>
