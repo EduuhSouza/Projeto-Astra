@@ -15,7 +15,7 @@
 :root{
     --roxo-escuro: #31175c;
     --roxo: #73168c;
-    --cinza-escuro: #0d0d0d; 
+    --cinza-escuro: #0d0d0d;
     --cinza: #262626;
     --bg-menu: #0D0126;
 }
@@ -26,45 +26,52 @@
     box-sizing: border-box;
 }
 
- body {
+body {
     width: 100%;
-      height: 100vh;
-      background: radial-gradient(circle at 20% 20%, #1b0034, #000011 80%);
-      color: white;
+    min-height: 100vh;
+    background: radial-gradient(circle at 20% 20%, #1b0034, #000011 80%);
+    color: white;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ======== Fundo animado de estrelas ======== */
+body::before {
+    content: "";
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+    background-size: contain;
+    animation: moverEstrelas 900s linear infinite;
+    opacity: 0.25;
+    z-index: -1; 
     
-      display: grid;
-      grid-template-columns: auto 1fr;
-      font-family: sans-serif;
-    }
+  }
 
-  /*======== Fundo animado de estrelas ======== */
-    body::before {
-        z-index: -1;
-      content: "";
-      position: fixed;
-      width: 200%;
-      height: 200%;
-      background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-      animation: moverEstrelas 100s linear infinite;
-      opacity: 0.3;
-      
+/* ======== Animação suave do fundo ======== */
+@keyframes moverEstrelas {
+    from {
+        background-position: 0 0;
     }
-
-     @keyframes moverEstrelas {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-50%, -50%); }
+    to {
+        background-position: 10000px 10000px; /* movimento contínuo */
     }
+}
 
    .logo{
         width: 90px;
     }
 
- 
-
     h2, p {
         margin-top: 1em;
     }
-    
+
    /* SIDEBAR */
     #sidebar {
     box-sizing: border-box;
@@ -78,7 +85,7 @@
     overflow: hidden;
     transition: all 300ms ease-in-out;
     text-wrap: nowrap;
-    z-index: 100; 
+    z-index: 100;
 }
 
 
@@ -87,7 +94,7 @@
     #sidebar.close{
         padding: 5px;
         width: 60px;
-       
+
         box-shadow: 0 0 10px 8px var(--roxo-escuro);
 }
 
@@ -115,12 +122,12 @@
 
     #sidebar ul li.active .nav-btn{
         color: var(--roxo);
-        
+
         i{
             color: var(--roxo);
         }
     }
-    
+
     #sidebar i{
         color: white;
         font-size: 1.3em;
@@ -157,14 +164,14 @@
 
     #sidebar .nav-btn:hover, #sidebar .dropdown-btn:hover{
         background-color: var(--roxo-escuro);
-        
+
     }
 
     #sidebar .sub-menu{
         display: grid;
         grid-template-rows: 0fr;
         transition: 300ms ease-in-out;
- 
+
         > div{
             overflow: hidden;
         }
@@ -277,6 +284,38 @@
   display: block;
 }
 
+/* ======== BOTÃO LOGOUT ======== */
+#sidebar .logout-section {
+  padding-top: 1em;
+  border-top: 1px solid rgba(176, 108, 255, 0.3);
+}
+
+.btn-logout {
+  width: 100%;
+  background: none;
+  color: #fff;
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 1em;
+  border-radius: 0.6em;
+  transition: all 0.3s ease;
+}
+
+/* Hover e clique */
+.btn-logout:hover{
+background-color: rgba(176, 108, 255, 0.2);
+  color: #b06cff;
+}
+
+.btn-logout i {
+  font-size: 1.2em;
+  color: #fff;
+}
+
+
 /* MAIN  */
 
    main p{
@@ -314,5 +353,104 @@
 }
 
 
-/* ========== SIDEBAR MOBILE ========== */
+/* ABA DE INICIO */
 
+.container-dashboard.inicio{
+  text-align: center;
+  font-size: 1.5em;
+}
+
+
+
+/* ======= CARDS ======= */
+.cards-section {
+    border-top: solid 2px var(--roxo);
+    padding: 6em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.card {
+    background: rgba(20, 10, 40, 0.85);
+    border-radius: 15px;
+    padding: 30px 20px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 0 25px var(--bg-menu);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 40px rgba(200, 150, 255, 0.5);
+}
+
+.card .icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: #cbb8ff;
+}
+
+.card p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #d9d5ff;
+}
+
+/* ======= FUNCIONALIDADES ======= */
+.features-section {
+    text-align: center;
+}
+
+.features-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #ffd1ff;
+    text-shadow: 0 0 15px #b28dff;
+}
+
+.features-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.feature {
+    background: rgba(20, 10, 40, 0.7);
+    padding: 20px 25px;
+    border-radius: 12px;
+    font-size: 1.1em;
+    box-shadow: 0 0 20px rgba(130, 70, 255, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px rgba(200, 150, 255, 0.4);
+}
+
+/* ======= RESPONSIVO ======= */
+@media screen and (max-width: 900px) {
+    .cards-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card, .feature {
+        width: 90%;
+    }
+}
