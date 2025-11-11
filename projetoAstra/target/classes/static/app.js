@@ -104,11 +104,11 @@ function carregarConteudo(pagina) {
             html = `
                 <div class="container-dashboard">
 
-                         <input type="text" id="tema" placeholder="Ex: Aprender Java do zero">
-                          <button onclick="gerarFluxograma()">Gerar Fluxograma</button>
+                         <h2>Gerador de Fluxograma Mermaid</h2>
+                             <input type="text" id="tema" placeholder="Digite o tema do fluxograma" />
+                             <button onclick="gerarFluxograma()">Gerar Fluxograma</button>
 
-                          <div id="loading"></div>
-                          <div id="fluxograma" class="mermaid"></div>
+                             <pre id="fluxograma" class="mermaid"></pre>
 
                 </div>
 
@@ -209,36 +209,24 @@ function carregarConteudo(pagina) {
 }
 
 //FLUXOGRAMA
-function gerarFluxograma() {
-    const tema = document.getElementById("tema").value;
-    if (!tema) {
-        alert("Informe um tema!");
-        return;
-    }
-    document.getElementById("loading").innerHTML = "Gerando...";
+  async function gerarFluxograma() {
+            const tema = document.getElementById("tema").value;
+            const response = await fetch("/gerar-fluxograma", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ tema })
+            });
 
-    fetch('/gerar-fluxograma', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ tema: tema })
-    })
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("loading").innerHTML = "";
-        // Atualiza o conteúdo do div com id fluxograma para o Mermaid renderizar
-        document.getElementById("fluxograma").textContent = data;
-        // Opcional: chamar mermaid para renderizar o texto atualizado
-        if(window.mermaid) {
-            mermaid.init(undefined, "#fluxograma");
+            if (response.ok) {
+                const codigoMermaid = await response.text();
+                document.getElementById("fluxograma").textContent = codigoMermaid;
+
+                // Renderiza o Mermaid no container
+                mermaid.init(undefined, document.getElementById("fluxograma"));
+            } else {
+                alert("Erro ao gerar fluxograma");
+            }
         }
-    })
-    .catch(error => {
-        console.error("Erro:", error);
-        document.getElementById("loading").innerHTML = "Erro ao gerar fluxograma";
-    });
-}
 
     // =================== ENVIO DO QUIZ ===================
     document.addEventListener("submit", async function(e) {
@@ -274,12 +262,6 @@ function gerarFluxograma() {
             }
         }
     });
-
-    function refazerQuiz() {
-        document.getElementById("quizForm").reset();
-        document.getElementById("quizForm").style.display = "block";
-        document.getElementById("resultadoQuiz").style.display = "none";
-    }
 
  // =================== ANIMAÇÃO DO QUIZ (VERSÃO CORRIGIDA) ===================
  function iniciarAnimacaoQuiz() {

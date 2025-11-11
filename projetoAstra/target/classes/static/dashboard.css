@@ -88,30 +88,27 @@ body::before {
     z-index: 100;
 }
 
-
-/*======== SIDEBAR FECHADA ======== */
-
-    #sidebar.close{
-        padding: 5px;
-        width: 60px;
-
-        box-shadow: 0 0 10px 8px var(--roxo-escuro);
-}
-
-
-/* ======== Quando a sidebar está fechada, esconder textos ========*/
-#sidebar.close .nav-btn span,
-#sidebar.close .dropdown-btn span {
-    opacity: 0;
-    visibility: hidden;
-    width: 0;
+/* ======== SIDEBAR FECHADA ======== */
+#sidebar.close {
+    width: 70px;
+    padding: 5px;
+    box-shadow: 0 0 10px 8px var(--roxo-escuro);
     overflow: hidden;
-    transition: opacity 0.2s ease, width 0.2s ease;
 }
 
-    /* #sidebar ul{
-        list-style: none;
-    } */
+#sidebar.close .nav-btn span,
+#sidebar.close .dropdown-btn span,
+#sidebar.close .sub-menu,
+#sidebar.close .logout-section span {
+    display: none;
+}
+
+/* Corrige rotação e layout dos ícones no modo fechado */
+#sidebar.close i {
+    margin: 0 auto;
+    transition: none;
+}
+
 
     #sidebar > ul > li:first-child{
         display: flex;
@@ -141,11 +138,9 @@ body::before {
         color: white;
         background: none;
         border: none;
-        /* text-decoration: none; */
         display: flex;
         align-items: center;
         gap: 1em;
-
         transition: all .2s ease-in-out;
     }
 
