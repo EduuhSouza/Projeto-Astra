@@ -64,6 +64,7 @@ public class LoginController {
         if (result.hasErrors()) {
             return "redirect:/index";
         }
+        ur.save(user);
         return "redirect:/index";
     }
 
