@@ -117,7 +117,7 @@ function carregarConteudo(pagina) {
 
    case "metodo":
        html = `
-           <div class="container-dashboard quiz">
+                <div class="container-method">
                <h1>Descubra seu Método de Estudo Ideal</h1>
                <form id="quizForm" class="quiz-form">
 
@@ -174,7 +174,24 @@ function carregarConteudo(pagina) {
                    <p id="tipoMetodo"></p>
                    <p id="descricaoMetodo"></p>
                </div>
-           </div>
+
+        <h1>Metodos possiveis</h1>
+
+        <div class="box-method">
+            <h2>Metodo pomodoro</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quos quis eaque. Iste quia, dolores exercitationem repellendus odit nemo debitis recusandae perferendis autem! Labore provident libero enim ea, minus nihil!</p>
+        </div>
+
+         <div class="box-method">
+            <h2>Metodo pomodoro</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quos quis eaque. Iste quia, dolores exercitationem repellendus odit nemo debitis recusandae perferendis autem! Labore provident libero enim ea, minus nihil!</p>
+        </div>
+
+         <div class="box-method">
+            <h2>Metodo pomodoro</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quos quis eaque. Iste quia, dolores exercitationem repellendus odit nemo debitis recusandae perferendis autem! Labore provident libero enim ea, minus nihil!</p>
+        </div>
+    </div>
        `;
        break;
 
@@ -374,8 +391,6 @@ function gerarFluxograma() {
  }
 
  function rebindQuizAfterClone(quizForm) {
-     // reaplica o comportamento (mais simples: reaplica iniciarQuizPassoAPasso mas com cuidado)
-     // Para evitar duplicar MutationObserver, não o re-iniciamos aqui
      const perguntas = Array.from(quizForm.querySelectorAll(".pergunta"));
      const btnEnviar = quizForm.querySelector(".btn-enviar");
      if (!btnEnviar) return;
@@ -421,7 +436,7 @@ function gerarFluxograma() {
          });
      });
 
-     // Agora vinculamos o submit diretamente ao formulário (assegura que funcione)
+
      quizForm.addEventListener("submit", async function (e) {
          e.preventDefault();
          btnEnviar.disabled = true;
