@@ -179,8 +179,6 @@ function carregarConteudo(pagina) {
        break;
 
 
-
-
         default:
             html = `<div class="container-dashboard"><h2>Erro</h2><p>Página não encontrada.</p></div>`;
             break;
@@ -191,6 +189,38 @@ function carregarConteudo(pagina) {
         mainContent.innerHTML = html;
         mainContent.classList.remove("fade");
     }, 200);
+}
+
+//FLUXOGRAMA
+function gerarFluxograma() {
+    const tema = document.getElementById("tema").value;
+    if (!tema) {
+        alert("Informe um tema!");
+        return;
+    }
+    document.getElementById("loading").innerHTML = "Gerando...";
+
+    fetch('/gerar-fluxograma', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ tema: tema })
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("loading").innerHTML = "";
+        // Atualiza o conteúdo do div com id fluxograma para o Mermaid renderizar
+        document.getElementById("fluxograma").textContent = data;
+        // Opcional: chamar mermaid para renderizar o texto atualizado
+        if(window.mermaid) {
+            mermaid.init(undefined, "#fluxograma");
+        }
+    })
+    .catch(error => {
+        console.error("Erro:", error);
+        document.getElementById("loading").innerHTML = "Erro ao gerar fluxograma";
+    });
 }
 
     // =================== ENVIO DO QUIZ ===================
